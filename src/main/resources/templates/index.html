@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>图书编号</th>
+                <th>图书名称</th>
+                <th>图书数量</th>
+                <th>图书详情</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book:${books.getList()}">
+                <td th:text="${book.getBookId()}"></td>
+                <td th:text="${book.getBookName()}"></td>
+                <td th:text="${book.getBookCount()}"></td>
+                <td th:text="${book.getDetail()}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a>下一页</a>
+    <a>上一下</a>
+    <span>共有[[${books.getPages()}]]</span>
+</body>
+</html>
